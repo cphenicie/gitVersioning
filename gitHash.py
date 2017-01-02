@@ -1,5 +1,9 @@
 # Minimal working example of code that grabs the git hash for a file
 #
+# TODO:
+# 1. Make a tlab_git module
+# 2. Checkout gitpython
+#
 # Other notes about github:
 # To make a command line argument M-!
 # First create the repo then clone with "git clone <url>
@@ -10,6 +14,7 @@
 
 import subprocess
 import os
+import time
 
 thisFile = os.path.basename(__file__)
 
@@ -25,5 +30,9 @@ isDiff = diffStr.find(diffLine) + 1
 if isDiff:
     # update git and grab new hash
     print("Pushing changes to git...")
+    subprocess.check_output(["git", "add", thisFile])
+    timestr = time.strftime("%Y-%m-%d %H:%M:%S")
+    subprocess.check_output(["git", "commit", "-m", timestr])
+#
 # The first time this was pushed it had the id 3ca5939
 # The second time it had the id c70ef16
