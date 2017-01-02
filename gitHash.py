@@ -9,11 +9,17 @@
 
 
 import subprocess
+import os
+
+thisFile = os.path.basename(__file__)
+
 hashID = subprocess.check_output(["git", "describe", "--always"])
 print(hashID.strip())
 
-isDifferent = subprocess.check_output(["git", "diff", "HEAD"])
-print(isDifferent)
+diffStr = subprocess.check_output(["git", "diff", "HEAD"])
+# if there is a difference between the current file and "HEAD", it will
+# have this line
+diffLine = "diff --git a/" + thisFile + " b/" + thisFile
 
 # The first time this was pushed it had the id 3ca5939
 # The second time it had the id c70ef16
