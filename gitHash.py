@@ -33,6 +33,7 @@ if isDiff:
     subprocess.check_output(["git", "add", thisFile])
     timestr = time.strftime("%Y-%m-%d %H:%M:%S")
     subprocess.check_output(["git", "commit", "-m", timestr])
+    subprocess.check_output(["git", "push"])
 
 # Random line changed
 # The first time this was pushed it had the id 3ca5939
