@@ -25,6 +25,5 @@ isDiff = diffStr.find(diffLine) + 1
 if isDiff:
     # update git and grab new hash
     print("Pushing changes to git...")
-
 # The first time this was pushed it had the id 3ca5939
 # The second time it had the id c70ef16
