@@ -10,7 +10,9 @@
 # When committing, make sure the use "double quotes"
 # I think I only made pushing work from the github GUI?
 # To complile from withing emacs, M-! python <file name> RET
-
+#
+# To restore previous versions in emacs, click on the Git:master button or
+# C-x v ~
 
 import subprocess
 import os
