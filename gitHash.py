@@ -15,6 +15,7 @@
 import subprocess
 import os
 import time
+import git
 
 thisFile = os.path.basename(__file__)
 
@@ -33,7 +34,9 @@ if isDiff:
     subprocess.check_output(["git", "add", thisFile])
     timestr = time.strftime("%Y-%m-%d %H:%M:%S")
     subprocess.check_output(["git", "commit", "-m", timestr])
-    subprocess.check_output(["git", "push", "origin", "master"])
+    # subprocess.check_output(["git", "push", "origin", "master"]) # This line
+    # break everything
+    print(os.getcwd())
 
 # Random line changed
 # The first time this was pushed it had the id 3ca5939
