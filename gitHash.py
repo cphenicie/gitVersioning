@@ -31,9 +31,11 @@ hashID = subprocess.check_output(["git", "describe", "--always"])
 print(os.system('pwd'))
 hashID2 = subprocess.check_output(
     ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
+hashID3 = tlab_git.getHash(gitDir=thisFileDir)
 
 print(hashID.strip())
 print(hashID2.strip())
+print(hashID3)
 
 diffStr = subprocess.check_output(["git", "diff", "HEAD"])
 # if there is a difference between the current file and "HEAD", it will
