@@ -22,20 +22,24 @@ import git
 thisFile = os.path.basename(__file__)
 thisFileDir = os.path.dirname(os.path.realpath(__file__))
 
-os.sys.path.append(thisFileDir + "/..")
+os.sys.path.append(thisFileDir + "\..")
 import tlab_git
 
 hashID = subprocess.check_output(["git", "describe", "--always"])
-# os.chdir('../..')
+os.chdir('../..')
 # Make sure this works even if the system is in a different directory
-# print(os.system('pwd'))
+print(os.system('pwd'))
 hashID2 = subprocess.check_output(
     ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
 hashID3 = tlab_git.getHash(gitDir=thisFileDir)
+# hashID3 = tlab_git.getHash()
 # junk line
 print(hashID.strip())
 print(hashID2.strip()[0:7])
 print(hashID3[0:7])
+
+os.chdir("GitTest\gitVersioning")
+print(os.system('pwd'))
 
 diffStr = subprocess.check_output(["git", "diff", "HEAD"])
 # if there is a difference between the current file and "HEAD", it will
