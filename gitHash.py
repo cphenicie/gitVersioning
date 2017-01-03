@@ -22,7 +22,13 @@ import git
 thisFile = os.path.basename(__file__)
 thisFileDir = os.path.dirname(os.path.realpath(__file__))
 
+os.sys.path.append(thisFileDir + "/..")
+import tlab_git
+
 hashID = subprocess.check_output(["git", "describe", "--always"])
+# os.chdir('../..')
+# Make sure this works even if the system is in a different directory
+print(os.system('pwd'))
 hashID2 = subprocess.check_output(
     ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
 
@@ -43,7 +49,9 @@ if isDiff:
     subprocess.check_output(["git", "commit", "-m", timestr])
     # subprocess.check_output(["git", "push", "origin", "master"]) # This line
     # breaks everything
-    newHashID = subprocess.check_output(["git", "describe", "--always"])
+    # newHashID = subprocess.check_output(["git", "describe", "--always"])
+    newHashID = subprocess.check_output(
+        ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
     print("The new hash is " + newHashID)
 
 # Random line changed h
