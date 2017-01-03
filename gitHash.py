@@ -18,6 +18,7 @@ import time
 import git
 
 thisFile = os.path.basename(__file__)
+thisFileDir = os.path.dirname(os.path.realpath(__file__))
 
 hashID = subprocess.check_output(["git", "describe", "--always"])
 print(hashID.strip())
@@ -35,10 +36,8 @@ if isDiff:
     timestr = time.strftime("%Y-%m-%d %H:%M:%S")
     subprocess.check_output(["git", "commit", "-m", timestr])
     # subprocess.check_output(["git", "push", "origin", "master"]) # This line
-    # break everything
-    print(os.getcwd())
-    print(os.path.dirname(os.path.realpath(__file__)))
+    # breaks everything
 
-# Random line changed
+# Random line changed asdf
 # The first time this was pushed it had the id 3ca5939
 # The second time it had the id c70ef16
