@@ -30,13 +30,15 @@ diffLine = "diff --git a/" + thisFile + " b/" + thisFile
 # .find() returns 0 if found, -1 if not found
 isDiff = diffStr.find(diffLine) + 1
 if isDiff:
-    # update git and grab new hash
+    # commit to git and grab new hash
     print("Pushing changes to git...")
     subprocess.check_output(["git", "add", thisFile])
     timestr = time.strftime("%Y-%m-%d %H:%M:%S")
     subprocess.check_output(["git", "commit", "-m", timestr])
     # subprocess.check_output(["git", "push", "origin", "master"]) # This line
     # breaks everything
+    newHashID = subprocess.check_output(["git", "describe", "--always"])
+    print("The new hash is " + newHashID)
 
 # Random line changed asdf
 # The first time this was pushed it had the id 3ca5939
