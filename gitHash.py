@@ -35,7 +35,7 @@ hashID3 = tlab_git.getHash(gitDir=thisFileDir)
 
 print(hashID.strip())
 print(hashID2.strip())
-print(hashID3)
+print(hashID3[0:7])
 
 diffStr = subprocess.check_output(["git", "diff", "HEAD"])
 # if there is a difference between the current file and "HEAD", it will
