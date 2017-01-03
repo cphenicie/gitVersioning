@@ -28,7 +28,7 @@ import tlab_git
 hashID = subprocess.check_output(["git", "describe", "--always"])
 # os.chdir('../..')
 # Make sure this works even if the system is in a different directory
-print(os.system('pwd'))
+# print(os.system('pwd'))
 hashID2 = subprocess.check_output(
     ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
 hashID3 = tlab_git.getHash(gitDir=thisFileDir)
