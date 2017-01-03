@@ -24,7 +24,7 @@ thisFileDir = os.path.dirname(os.path.realpath(__file__))
 
 hashID = subprocess.check_output(["git", "describe", "--always"])
 hashID2 = subprocess.check_output(
-    ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
+    ["git", "rev-list", "HEAD", "./"], cwd=thisFileDir)
 
 print(hashID.strip())
 print(hashID2.strip())
