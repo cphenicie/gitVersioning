@@ -23,7 +23,11 @@ thisFile = os.path.basename(__file__)
 thisFileDir = os.path.dirname(os.path.realpath(__file__))
 
 hashID = subprocess.check_output(["git", "describe", "--always"])
+hashID2 = subprocess.check_output(
+    ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
+
 print(hashID.strip())
+print(hashID2.strip())
 
 diffStr = subprocess.check_output(["git", "diff", "HEAD"])
 # if there is a difference between the current file and "HEAD", it will
