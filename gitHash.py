@@ -42,6 +42,6 @@ if isDiff:
     newHashID = subprocess.check_output(["git", "describe", "--always"])
     print("The new hash is " + newHashID)
 
-# Random line changed asdf
+# Random line changed
 # The first time this was pushed it had the id 3ca5939
 # The second time it had the id c70ef16
