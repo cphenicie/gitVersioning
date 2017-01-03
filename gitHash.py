@@ -37,6 +37,7 @@ if isDiff:
     # subprocess.check_output(["git", "push", "origin", "master"]) # This line
     # break everything
     print(os.getcwd())
+    print(os.path.dirname(os.path.realpath(__file__)))
 
 # Random line changed
 # The first time this was pushed it had the id 3ca5939
