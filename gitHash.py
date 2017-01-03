@@ -32,7 +32,7 @@ hashID = subprocess.check_output(["git", "describe", "--always"])
 hashID2 = subprocess.check_output(
     ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
 hashID3 = tlab_git.getHash(gitDir=thisFileDir)
-
+# junk line
 print(hashID.strip())
 print(hashID2.strip()[0:7])
 print(hashID3[0:7])
