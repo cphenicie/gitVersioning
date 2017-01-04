@@ -40,12 +40,14 @@ print(hashID3[0:7])
 os.chdir("GitTest\gitVersioning")
 # print(os.system('pwd'))
 
-diffStr = subprocess.check_output(["git", "diff", "HEAD"])
+#diffStr = subprocess.check_output(["git", "diff", "HEAD"])
 # if there is a difference between the current file and "HEAD", it will
 # have this line
-diffLine = "diff --git a/" + thisFile + " b/" + thisFile
+#diffLine = "diff --git a/" + thisFile + " b/" + thisFile
 # .find() returns 0 if found, -1 if not found
-isDiff = diffStr.find(diffLine) + 1
+#isDiff = diffStr.find(diffLine) + 1
+isDiff = tlab_git.checkDiff(thisFileDir, thisFile)
+
 if isDiff:
     # commit to git and grab new hash
     # print("Pushing changes to git...")
