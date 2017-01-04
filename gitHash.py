@@ -28,18 +28,17 @@ import tlab_git
 hashID = subprocess.check_output(["git", "describe", "--always"])
 os.chdir('../..')
 # Make sure this works even if the system is in a different directory
-print(os.system('pwd'))
+# print(os.system('pwd'))
 hashID2 = subprocess.check_output(
     ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
 hashID3 = tlab_git.getHash(gitDir=thisFileDir)
-# hashID3 = tlab_git.getHash()
-# junk line
+
 print(hashID.strip())
 print(hashID2.strip()[0:7])
 print(hashID3[0:7])
 
 os.chdir("GitTest\gitVersioning")
-print(os.system('pwd'))
+# print(os.system('pwd'))
 
 diffStr = subprocess.check_output(["git", "diff", "HEAD"])
 # if there is a difference between the current file and "HEAD", it will
@@ -49,16 +48,17 @@ diffLine = "diff --git a/" + thisFile + " b/" + thisFile
 isDiff = diffStr.find(diffLine) + 1
 if isDiff:
     # commit to git and grab new hash
-    print("Pushing changes to git...")
-    subprocess.check_output(["git", "add", thisFile])
-    timestr = time.strftime("%Y-%m-%d %H:%M:%S")
-    subprocess.check_output(["git", "commit", "-m", timestr])
-    # subprocess.check_output(["git", "push", "origin", "master"]) # This line
-    # breaks everything
-    # newHashID = subprocess.check_output(["git", "describe", "--always"])
-    newHashID = subprocess.check_output(
-        ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
-    print("The new hash is " + newHashID)
+    # print("Pushing changes to git...")
+    # subprocess.check_output(["git", "add", thisFile])
+    # timestr = time.strftime("%Y-%m-%d %H:%M:%S")
+    # subprocess.check_output(["git", "commit", "-m", timestr])
+    # # subprocess.check_output(["git", "push", "origin", "master"]) # This line
+    # # breaks everything
+    # # newHashID = subprocess.check_output(["git", "describe", "--always"])
+    # newHashID = subprocess.check_output(
+    #     ["git", "rev-list", "-1", "HEAD", "./"], cwd=thisFileDir)
+    # print("The new hash is " + newHashID)
+    tlab_git.updateRepo(thisFileDir, thisFile)
 
 # Random line changed h
 # The first time this was pushed it had the id 3ca5939
