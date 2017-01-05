@@ -15,9 +15,11 @@ import os
 thisFile = os.path.basename(__file__)
 thisFileDir = os.path.dirname(os.path.realpath(__file__))
 
-os.sys.path.append(thisFileDir + "\..")
+#os.sys.path.append(thisFileDir + "\..")
+os.sys.path.append(thisFileDir)
 import tlab_git
 
+tlab_git.cphenicieCred()
 hashStr = tlab_git.getHash(gitDir=thisFileDir)
 print(hashStr[0:7])
 isDiff = tlab_git.checkDiff(thisFileDir, thisFile)
