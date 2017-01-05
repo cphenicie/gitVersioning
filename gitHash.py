@@ -17,8 +17,8 @@ thisFileDir = os.path.dirname(os.path.realpath(__file__))
 print(thisFileDir)
 
 #os.sys.path.append(thisFileDir + "\..")
-os.sys.path.append(thisFileDir)
-#os.sys.path.append("I://thompsonlab//")
+#os.sys.path.append(thisFileDir)
+#os.sys.path.append("i:\thompsonlab\Code\tlab_modules")
 import tlab_git
 
 tlab_git.cphenicieCred()
